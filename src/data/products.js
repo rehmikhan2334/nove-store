@@ -1,10 +1,10 @@
 const img = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`
 
 export const categories = [
-  { id: 'electronics', name: 'Electronics', icon: '🎧', blurb: 'Audio, wearables & smart gear' },
-  { id: 'fashion', name: 'Fashion', icon: '👟', blurb: 'Streetwear, shoes & apparel' },
-  { id: 'accessories', name: 'Accessories', icon: '⌚', blurb: 'Watches, bags & eyewear' },
-  { id: 'home', name: 'Home & Living', icon: '🏠', blurb: 'Decor and everyday comfort' },
+  { id: 'electronics', name: 'Electronics', icon: 'headphones', blurb: 'Audio, wearables & smart gear' },
+  { id: 'fashion', name: 'Fashion', icon: 'tag', blurb: 'Streetwear, shoes & apparel' },
+  { id: 'accessories', name: 'Accessories', icon: 'watch', blurb: 'Watches, bags & eyewear' },
+  { id: 'home', name: 'Home & Living', icon: 'home', blurb: 'Decor and everyday comfort' },
 ]
 
 export const products = [

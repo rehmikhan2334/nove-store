@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, useCallback } from 'react'
 import { products } from '../data/products.js'
+import { seedReviews } from '../data/reviews.js'
 
 const StoreContext = createContext(null)
 
@@ -17,12 +18,14 @@ export function StoreProvider({ children }) {
   const [wishlist, setWishlist] = useState(() => load('nova_wishlist', []))
   const [user, setUser] = useState(() => load('nova_user', null))
   const [orders, setOrders] = useState(() => load('nova_orders', []))
-  const [theme, setTheme] = useState(() => load('nova_theme', 'light'))
+  const [theme, setTheme] = useState(() => load('nova_theme', (typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'))
+  const [userReviews, setUserReviews] = useState(() => load('nova_reviews', []))
   const [toasts, setToasts] = useState([])
 
   useEffect(() => localStorage.setItem('nova_cart', JSON.stringify(cart)), [cart])
   useEffect(() => localStorage.setItem('nova_wishlist', JSON.stringify(wishlist)), [wishlist])
   useEffect(() => localStorage.setItem('nova_user', JSON.stringify(user)), [user])
+  useEffect(() => localStorage.setItem('nova_reviews', JSON.stringify(userReviews)), [userReviews])
   useEffect(() => localStorage.setItem('nova_orders', JSON.stringify(orders)), [orders])
   useEffect(() => {
     localStorage.setItem('nova_theme', JSON.stringify(theme))
@@ -71,6 +74,12 @@ export function StoreProvider({ children }) {
   const cartCount = cartItems.reduce((s, i) => s + i.qty, 0)
   const subtotal = cartItems.reduce((s, i) => s + i.qty * i.product.price, 0)
 
+  const reviews = useMemo(() => [...userReviews, ...seedReviews], [userReviews])
+  const addReview = (r) => {
+    setUserReviews((x) => [{ ...r, id: 'u' + Date.now(), date: new Date().toISOString().slice(0, 10), verified: false }, ...x])
+    toast('Thanks! Your review was posted')
+  }
+
   const login = (u) => { setUser(u); toast(`Welcome, ${u.name}!`) }
   const logout = () => { setUser(null); toast('Signed out', 'info') }
   const placeOrder = (details) => {
@@ -90,6 +99,7 @@ export function StoreProvider({ children }) {
     cart, cartItems, cartCount, subtotal, addToCart, updateQty, removeFromCart, clearCart,
     wishlist, toggleWishlist, user, login, logout, orders, placeOrder,
     theme, toggleTheme: () => setTheme((t) => (t === 'light' ? 'dark' : 'light')),
+    reviews, addReview,
     toasts, toast,
   }
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>

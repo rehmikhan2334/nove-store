@@ -1,3 +1,4 @@
+import Icon from '../components/Icons.jsx'
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { products, categories } from '../data/products.js'
@@ -49,7 +50,7 @@ export default function Shop() {
       <div className="page-head">
         <div><h1>{title}</h1><p className="muted">{list.length} products</p></div>
         <div className="toolbar">
-          <button className="btn btn-outline btn-sm filter-toggle" onClick={() => setFiltersOpen(!filtersOpen)}>⚙ Filters</button>
+          <button className="btn btn-outline btn-sm filter-toggle" onClick={() => setFiltersOpen(!filtersOpen)}><Icon name="filter" size={16} /> Filters</button>
           <select value={sort} onChange={(e) => setParam('sort', e.target.value)} aria-label="Sort">
             <option value="featured">Featured</option>
             <option value="popular">Most popular</option>
@@ -92,7 +93,7 @@ export default function Shop() {
           {list.length ? (
             <div className="grid grid-3">{list.map((p) => <ProductCard key={p.id} product={p} />)}</div>
           ) : (
-            <div className="empty card"><span>🔎</span><h3>No products match your filters</h3><button className="btn btn-primary" onClick={reset}>Clear filters</button></div>
+            <div className="empty card"><span className="empty-ic"><Icon name="search" size={44} /></span><h3>No products match your filters</h3><button className="btn btn-primary" onClick={reset}>Clear filters</button></div>
           )}
         </section>
       </div>

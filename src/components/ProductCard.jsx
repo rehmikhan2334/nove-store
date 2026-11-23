@@ -3,6 +3,7 @@ import { useStore } from '../context/StoreContext.jsx'
 import { formatPrice, getCategory } from '../data/products.js'
 import SafeImage from './SafeImage.jsx'
 import Rating from './Rating.jsx'
+import Icon from './Icons.jsx'
 
 export default function ProductCard({ product }) {
   const { addToCart, toggleWishlist, wishlist } = useStore()
@@ -19,7 +20,7 @@ export default function ProductCard({ product }) {
         {product.badge && <span className="badge">{product.badge}</span>}
         {discount > 0 && <span className="badge badge-sale">-{discount}%</span>}
         <button className={`icon-btn pc-heart ${liked ? 'active' : ''}`} onClick={() => toggleWishlist(product)} aria-label="Toggle wishlist">
-          {liked ? '♥' : '♡'}
+          <Icon name="heart" size={18} fill={liked} />
         </button>
       </div>
       <div className="pc-body">

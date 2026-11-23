@@ -1,3 +1,4 @@
+import Icon from '../components/Icons.jsx'
 import { Link } from 'react-router-dom'
 import { useStore } from '../context/StoreContext.jsx'
 import { products } from '../data/products.js'
@@ -13,7 +14,7 @@ export default function Wishlist() {
       {items.length ? (
         <div className="grid">{items.map((p) => <ProductCard key={p.id} product={p} />)}</div>
       ) : (
-        <div className="empty card"><span>💜</span><h2>Your wishlist is empty</h2><p className="muted">Tap the heart on any product to save it here.</p><Link to="/shop" className="btn btn-primary btn-lg">Browse products</Link></div>
+        <div className="empty card"><span className="empty-ic"><Icon name="heart" size={44} /></span><h2>Your wishlist is empty</h2><p className="muted">Tap the heart on any product to save it here.</p><Link to="/shop" className="btn btn-primary btn-lg">Browse products</Link></div>
       )}
     </div>
   )

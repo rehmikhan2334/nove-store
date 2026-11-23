@@ -1,3 +1,4 @@
+import Icon from '../components/Icons.jsx'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useStore } from '../context/StoreContext.jsx'
@@ -29,7 +30,7 @@ export default function Cart() {
   if (!cartItems.length)
     return (
       <div className="container page">
-        <div className="empty card"><span>🛒</span><h2>Your cart is empty</h2><p className="muted">Looks like you haven't added anything yet.</p><Link to="/shop" className="btn btn-primary btn-lg">Start shopping</Link></div>
+        <div className="empty card"><span className="empty-ic"><Icon name="cart" size={44} /></span><h2>Your cart is empty</h2><p className="muted">Looks like you haven't added anything yet.</p><Link to="/shop" className="btn btn-primary btn-lg">Start shopping</Link></div>
       </div>
     )
 

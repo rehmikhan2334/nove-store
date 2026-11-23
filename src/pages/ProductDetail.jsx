@@ -1,3 +1,4 @@
+import Icon from '../components/Icons.jsx'
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getProduct, getCategory, products, formatPrice } from '../data/products.js'
@@ -5,6 +6,7 @@ import { useStore } from '../context/StoreContext.jsx'
 import SafeImage from '../components/SafeImage.jsx'
 import Rating from '../components/Rating.jsx'
 import ProductCard from '../components/ProductCard.jsx'
+import ProductReviews from '../components/ProductReviews.jsx'
 import NotFound from './NotFound.jsx'
 
 export default function ProductDetail() {
@@ -67,28 +69,29 @@ export default function ProductDetail() {
           </div>
 
           <div className="detail-cta">
-            <button className="btn btn-primary btn-lg" onClick={() => addToCart(product, qty, color)}>🛒 Add to cart</button>
+            <button className="btn btn-primary btn-lg" onClick={() => addToCart(product, qty, color)}><Icon name="cart" size={18} /> Add to cart</button>
             <button className="btn btn-dark btn-lg" onClick={() => { addToCart(product, qty, color); navigate('/cart') }}>Buy now</button>
-            <button className={`icon-btn big ${liked ? 'active' : ''}`} onClick={() => toggleWishlist(product)} aria-label="Wishlist">{liked ? '♥' : '♡'}</button>
+            <button className={`icon-btn big ${liked ? 'active' : ''}`} onClick={() => toggleWishlist(product)} aria-label="Wishlist"><Icon name="heart" size={24} fill={liked} /></button>
           </div>
 
           <ul className="trust">
-            <li>🚚 Free delivery over $100</li>
-            <li>↩️ 30-day easy returns</li>
-            <li>🛡️ 1-year warranty</li>
+            <li><Icon name="truck" size={18} /> Free delivery over $100</li>
+            <li><Icon name="refresh" size={18} /> 30-day easy returns</li>
+            <li><Icon name="shield" size={18} /> 1-year warranty</li>
           </ul>
         </div>
       </div>
 
       <div className="card tabs">
         <div className="tab-head">
-          {['description', 'features', 'shipping'].map((t) => (
+          {['description', 'features', 'reviews', 'shipping'].map((t) => (
             <button key={t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t[0].toUpperCase() + t.slice(1)}</button>
           ))}
         </div>
         <div className="tab-body">
           {tab === 'description' && <p>{product.description} Built with quality materials and backed by our satisfaction guarantee, it is designed to last and look great while doing it.</p>}
           {tab === 'features' && <ul className="check">{product.features.map((f) => <li key={f}>{f}</li>)}</ul>}
+          {tab === 'reviews' && <ProductReviews product={product} />}
           {tab === 'shipping' && <p>Orders ship within 24 hours. Standard delivery takes 3–5 business days and is free on orders over $100. Not happy? Return it within 30 days for a full refund.</p>}
         </div>
       </div>

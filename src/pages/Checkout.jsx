@@ -1,3 +1,4 @@
+import Icon from '../components/Icons.jsx'
 import { useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useStore } from '../context/StoreContext.jsx'
@@ -70,8 +71,8 @@ export default function Checkout() {
           <section className="card form-card">
             <h3>2. Payment method</h3>
             <div className="pay-opts">
-              {[['card', '💳 Credit / Debit card'], ['cod', '💵 Cash on delivery']].map(([v, l]) => (
-                <label key={v} className={`pay ${pay === v ? 'on' : ''}`}><input type="radio" checked={pay === v} onChange={() => setPay(v)} />{l}</label>
+              {[['card', 'Credit / Debit card', 'card'], ['cod', 'Cash on delivery', 'cash']].map(([v, l, ic]) => (
+                <label key={v} className={`pay ${pay === v ? 'on' : ''}`}><input type="radio" checked={pay === v} onChange={() => setPay(v)} /><Icon name={ic} size={20} />{l}</label>
               ))}
             </div>
             {pay === 'card' && (

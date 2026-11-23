@@ -1,3 +1,4 @@
+import Icon from '../components/Icons.jsx'
 import { Link, useParams } from 'react-router-dom'
 import { useStore } from '../context/StoreContext.jsx'
 import { formatPrice } from '../data/products.js'
@@ -9,7 +10,7 @@ export default function OrderSuccess() {
   return (
     <div className="container page">
       <div className="success card">
-        <div className="check-big">✓</div>
+        <div className="check-big"><Icon name="check" size={44} strokeWidth={3} /></div>
         <h1>Thank you for your order!</h1>
         <p className="muted">Order <b>#{id}</b> has been placed. A confirmation will be sent to {order?.details.email || 'your email'}.</p>
         {order && (

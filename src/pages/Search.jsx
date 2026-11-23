@@ -1,3 +1,4 @@
+import Icon from '../components/Icons.jsx'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { products, categories } from '../data/products.js'
@@ -28,14 +29,14 @@ export default function Search() {
       <div className="search-hero card">
         <h1>Search products</h1>
         <div className="search-big">
-          <span>🔍</span>
+          <Icon name="search" size={22} />
           <input autoFocus value={q} onChange={(e) => onChange(e.target.value)} placeholder="Search by name, brand or category…" />
-          {q && <button className="icon-btn" onClick={() => onChange('')} aria-label="Clear">✕</button>}
+          {q && <button className="icon-btn" onClick={() => onChange('')} aria-label="Clear"><Icon name="close" size={18} /></button>}
         </div>
         <div className="chips">
           <button className={`chip ${cat === 'all' ? 'on' : ''}`} onClick={() => setCat('all')}>All</button>
           {categories.map((c) => (
-            <button key={c.id} className={`chip ${cat === c.id ? 'on' : ''}`} onClick={() => setCat(c.id)}>{c.icon} {c.name}</button>
+            <button key={c.id} className={`chip ${cat === c.id ? 'on' : ''}`} onClick={() => setCat(c.id)}><Icon name={c.icon} size={15} /> {c.name}</button>
           ))}
         </div>
         {!q && (
@@ -49,7 +50,7 @@ export default function Search() {
       {results.length ? (
         <div className="grid">{results.map((p) => <ProductCard key={p.id} product={p} />)}</div>
       ) : (
-        <div className="empty card"><span>😕</span><h3>Nothing found</h3><p className="muted">Try a different keyword or browse all products.</p><Link to="/shop" className="btn btn-primary">Browse shop</Link></div>
+        <div className="empty card"><span className="empty-ic"><Icon name="search2" size={44} /></span><h3>Nothing found</h3><p className="muted">Try a different keyword or browse all products.</p><Link to="/shop" className="btn btn-primary">Browse shop</Link></div>
       )}
     </div>
   )

@@ -1,3 +1,4 @@
+import Icon from '../components/Icons.jsx'
 import { useState } from 'react'
 import { useStore } from '../context/StoreContext.jsx'
 
@@ -16,8 +17,8 @@ export default function Contact() {
       <h1>Get in touch</h1>
       <div className="contact-layout">
         <div className="contact-info">
-          {[['📍', 'Visit us', 'Gulberg III, Lahore, Pakistan'], ['✉️', 'Email', 'support@novastore.com'], ['📞', 'Call', '+92 300 0000000'], ['🕘', 'Hours', 'Mon–Sat, 9am – 8pm']].map(([i, t, d]) => (
-            <div key={t} className="card info-item"><span>{i}</span><div><b>{t}</b><p className="muted">{d}</p></div></div>
+          {[['pin', 'Visit us', 'Gulberg III, Lahore, Pakistan'], ['mail', 'Email', 'support@novastore.com'], ['phone', 'Call', '+92 300 0000000'], ['clock', 'Hours', 'Mon–Sat, 9am – 8pm']].map(([i, t, d]) => (
+            <div key={t} className="card info-item"><span><Icon name={i} size={22} /></span><div><b>{t}</b><p className="muted">{d}</p></div></div>
           ))}
         </div>
         <form className="card form-card" onSubmit={submit}>

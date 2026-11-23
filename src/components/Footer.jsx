@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { categories } from '../data/products.js'
 import { useStore } from '../context/StoreContext.jsx'
+import Icon from './Icons.jsx'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -15,10 +16,10 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container">
         <div className="perks">
-          <div><span>🚚</span><b>Free Delivery</b><small>On orders over $100</small></div>
-          <div><span>↩️</span><b>30-Day Returns</b><small>Hassle-free refunds</small></div>
-          <div><span>🔒</span><b>Secure Payment</b><small>256-bit encryption</small></div>
-          <div><span>💬</span><b>24/7 Support</b><small>We're here to help</small></div>
+          <div><span><Icon name="truck" size={22} /></span><b>Free Delivery</b><small>On orders over $100</small></div>
+          <div><span><Icon name="refresh" size={22} /></span><b>30-Day Returns</b><small>Hassle-free refunds</small></div>
+          <div><span><Icon name="lock" size={22} /></span><b>Secure Payment</b><small>256-bit encryption</small></div>
+          <div><span><Icon name="chat" size={22} /></span><b>24/7 Support</b><small>We're here to help</small></div>
         </div>
 
         <div className="footer-grid">
@@ -44,9 +45,9 @@ export default function Footer() {
           </div>
           <div>
             <h4>Contact</h4>
-            <p className="muted-light">📍 Lahore, Pakistan</p>
-            <p className="muted-light">✉️ support@novastore.com</p>
-            <p className="muted-light">📞 +92 300 0000000</p>
+            <p className="muted-light ci"><Icon name="pin" size={16} /> Lahore, Pakistan</p>
+            <p className="muted-light ci"><Icon name="mail" size={16} /> support@novastore.com</p>
+            <p className="muted-light ci"><Icon name="phone" size={16} /> +92 300 0000000</p>
           </div>
         </div>
 
