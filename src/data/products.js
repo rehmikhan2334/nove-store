@@ -1,0 +1,143 @@
+const img = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`
+
+export const categories = [
+  { id: 'electronics', name: 'Electronics', icon: '🎧', blurb: 'Audio, wearables & smart gear' },
+  { id: 'fashion', name: 'Fashion', icon: '👟', blurb: 'Streetwear, shoes & apparel' },
+  { id: 'accessories', name: 'Accessories', icon: '⌚', blurb: 'Watches, bags & eyewear' },
+  { id: 'home', name: 'Home & Living', icon: '🏠', blurb: 'Decor and everyday comfort' },
+]
+
+export const products = [
+  {
+    id: 1, slug: 'aura-wireless-headphones', name: 'Aura Wireless Headphones', category: 'electronics', brand: 'Aura',
+    price: 149, oldPrice: 199, rating: 4.8, reviews: 328, stock: 24, badge: 'Best Seller',
+    image: img('photo-1505740420928-5e560c06d30e'),
+    colors: ['#0f172a', '#e2e8f0', '#6366f1'],
+    description: 'Immersive sound with active noise cancellation, 40-hour battery life and ultra-soft memory-foam ear cushions for all-day comfort.',
+    features: ['Active noise cancellation', '40-hour battery life', 'Bluetooth 5.3 multipoint', 'Fast charge: 10 min = 5 hours'],
+  },
+  {
+    id: 2, slug: 'pulse-smart-watch', name: 'Pulse Smart Watch Series 5', category: 'electronics', brand: 'Pulse',
+    price: 229, oldPrice: 279, rating: 4.7, reviews: 214, stock: 18, badge: 'New',
+    image: img('photo-1546868871-7041f2a55e12'),
+    colors: ['#0f172a', '#f59e0b', '#94a3b8'],
+    description: 'Track workouts, sleep and heart rate on a bright always-on AMOLED display, with 7 days of battery and built-in GPS.',
+    features: ['1.5" AMOLED always-on display', 'Built-in GPS & heart-rate sensor', '5 ATM water resistance', '7-day battery life'],
+  },
+  {
+    id: 3, slug: 'velocity-running-sneakers', name: 'Velocity Running Sneakers', category: 'fashion', brand: 'Velocity',
+    price: 119, oldPrice: 149, rating: 4.6, reviews: 189, stock: 40, badge: 'Sale',
+    image: img('photo-1542291026-7eec264c27ff'),
+    colors: ['#ef4444', '#0f172a', '#ffffff'],
+    description: 'Lightweight breathable mesh upper with responsive cushioning and a grippy outsole built for daily miles and city streets.',
+    features: ['Breathable engineered mesh', 'Responsive foam midsole', 'Durable rubber outsole', 'Sizes US 6–13'],
+  },
+  {
+    id: 4, slug: 'lumen-aviator-sunglasses', name: 'Lumen Aviator Sunglasses', category: 'accessories', brand: 'Lumen',
+    price: 89, oldPrice: null, rating: 4.5, reviews: 97, stock: 33, badge: null,
+    image: img('photo-1572635196237-14b3f281503f'),
+    colors: ['#0f172a', '#b45309'],
+    description: 'Polarized UV400 lenses in a timeless lightweight metal frame. Crisp vision, zero glare, endless style.',
+    features: ['Polarized UV400 lenses', 'Lightweight metal frame', 'Scratch-resistant coating', 'Includes hard case'],
+  },
+  {
+    id: 5, slug: 'heritage-leather-watch', name: 'Heritage Leather Watch', category: 'accessories', brand: 'Heritage',
+    price: 179, oldPrice: 219, rating: 4.9, reviews: 412, stock: 12, badge: 'Top Rated',
+    image: img('photo-1523275335684-37898b6baf30'),
+    colors: ['#78350f', '#0f172a'],
+    description: 'A refined analog timepiece with sapphire-coated glass, Japanese quartz movement and genuine leather strap.',
+    features: ['Sapphire-coated glass', 'Japanese quartz movement', 'Genuine leather strap', '3 ATM water resistance'],
+  },
+  {
+    id: 6, slug: 'nomad-everyday-backpack', name: 'Nomad Everyday Backpack', category: 'accessories', brand: 'Nomad',
+    price: 79, oldPrice: 99, rating: 4.6, reviews: 156, stock: 50, badge: null,
+    image: img('photo-1553062407-98eeb64c6a62'),
+    colors: ['#334155', '#0f172a', '#166534'],
+    description: 'Water-resistant 24L pack with a padded 15" laptop sleeve, hidden anti-theft pocket and breathable back panel.',
+    features: ['24L capacity', 'Padded 15" laptop sleeve', 'Water-resistant fabric', 'USB charging port'],
+  },
+  {
+    id: 7, slug: 'studio-pro-camera', name: 'Studio Pro Mirrorless Camera', category: 'electronics', brand: 'Studio',
+    price: 899, oldPrice: 1049, rating: 4.9, reviews: 76, stock: 7, badge: 'Premium',
+    image: img('photo-1526170375885-4d8ecf77b99f'),
+    colors: ['#0f172a'],
+    description: '24MP mirrorless camera with 4K video, in-body stabilization and lightning-fast autofocus for creators.',
+    features: ['24MP APS-C sensor', '4K/60 video', '5-axis stabilization', 'Wi-Fi & Bluetooth transfer'],
+  },
+  {
+    id: 8, slug: 'urban-denim-jacket', name: 'Urban Denim Jacket', category: 'fashion', brand: 'Urban',
+    price: 94, oldPrice: 120, rating: 4.4, reviews: 83, stock: 28, badge: 'Sale',
+    image: img('photo-1551028719-00167b16eac5'),
+    colors: ['#1e3a8a', '#0f172a'],
+    description: 'Classic-fit denim jacket in washed stretch cotton. Layer it over anything for an instant effortless look.',
+    features: ['Stretch cotton denim', 'Classic regular fit', 'Button front, 4 pockets', 'Machine washable'],
+  },
+  {
+    id: 9, slug: 'cloud-lounge-chair', name: 'Cloud Lounge Chair', category: 'home', brand: 'Casa',
+    price: 249, oldPrice: 329, rating: 4.7, reviews: 142, stock: 9, badge: 'Sale',
+    image: img('photo-1567538096630-e0c55bd6374c'),
+    colors: ['#e7e5e4', '#334155', '#b45309'],
+    description: 'A deeply comfortable accent chair with solid oak legs and a soft bouclé finish — the centerpiece of any room.',
+    features: ['Solid oak legs', 'Soft bouclé upholstery', 'High-density foam seat', 'Easy assembly'],
+  },
+  {
+    id: 10, slug: 'minimal-desk-lamp', name: 'Minimal LED Desk Lamp', category: 'home', brand: 'Casa',
+    price: 59, oldPrice: null, rating: 4.5, reviews: 201, stock: 60, badge: null,
+    image: img('photo-1507473885765-e6ed057f782c'),
+    colors: ['#f8fafc', '#0f172a'],
+    description: 'Dimmable LED lamp with 5 colour temperatures, wireless phone charging base and a flexible aluminium arm.',
+    features: ['5 colour temperatures', 'Touch dimming', 'Wireless charging base', 'Eye-care flicker-free LED'],
+  },
+  {
+    id: 11, slug: 'zen-ceramic-vase-set', name: 'Zen Ceramic Vase Set', category: 'home', brand: 'Casa',
+    price: 45, oldPrice: 60, rating: 4.3, reviews: 64, stock: 35, badge: null,
+    image: img('photo-1578500494198-246f612d3b3d'),
+    colors: ['#f5f5f4', '#d6d3d1'],
+    description: 'A set of three handcrafted matte-ceramic vases in varying heights. Perfect for dried stems or on their own.',
+    features: ['Set of 3 vases', 'Handcrafted matte ceramic', 'Watertight glaze', 'Gift-ready box'],
+  },
+  {
+    id: 12, slug: 'flex-yoga-mat', name: 'Flex Pro Yoga Mat', category: 'fashion', brand: 'Flex',
+    price: 39, oldPrice: 55, rating: 4.6, reviews: 175, stock: 70, badge: null,
+    image: img('photo-1601925260368-ae2f83cf8b7f'),
+    colors: ['#7c3aed', '#0f172a', '#0d9488'],
+    description: 'Extra-thick non-slip mat with alignment lines, made from eco-friendly TPE. Includes a carry strap.',
+    features: ['6mm extra cushioning', 'Non-slip texture', 'Eco-friendly TPE', 'Carry strap included'],
+  },
+  {
+    id: 13, slug: 'beat-portable-speaker', name: 'Beat Portable Speaker', category: 'electronics', brand: 'Beat',
+    price: 69, oldPrice: 89, rating: 4.4, reviews: 266, stock: 45, badge: null,
+    image: img('photo-1608043152269-423dbba4e7e1'),
+    colors: ['#0f172a', '#ef4444', '#2563eb'],
+    description: '360° room-filling sound in a pocket-size, IPX7 waterproof speaker with 20 hours of playtime.',
+    features: ['360° sound', 'IPX7 waterproof', '20-hour playtime', 'Pair two for stereo'],
+  },
+  {
+    id: 14, slug: 'classic-white-sneakers', name: 'Classic White Sneakers', category: 'fashion', brand: 'Velocity',
+    price: 85, oldPrice: null, rating: 4.7, reviews: 301, stock: 38, badge: 'Best Seller',
+    image: img('photo-1549298916-b41d501d3772'),
+    colors: ['#ffffff', '#0f172a'],
+    description: 'Minimal low-top leather sneakers that go with everything. Cushioned insole and stitched rubber sole.',
+    features: ['Premium vegan leather', 'Cushioned insole', 'Stitched rubber sole', 'Sizes US 6–13'],
+  },
+  {
+    id: 15, slug: 'trail-water-bottle', name: 'Trail Insulated Bottle', category: 'accessories', brand: 'Nomad',
+    price: 29, oldPrice: 36, rating: 4.8, reviews: 520, stock: 120, badge: null,
+    image: img('photo-1602143407151-7111542de6e8'),
+    colors: ['#0f172a', '#14b8a6', '#f43f5e'],
+    description: 'Double-wall vacuum-insulated stainless bottle keeps drinks cold 24 hours or hot 12 hours. BPA free.',
+    features: ['24h cold / 12h hot', 'BPA-free stainless steel', 'Leak-proof lid', '750 ml'],
+  },
+  {
+    id: 16, slug: 'terra-wool-throw-blanket', name: 'Terra Wool Throw Blanket', category: 'home', brand: 'Casa',
+    price: 65, oldPrice: 80, rating: 4.6, reviews: 58, stock: 22, badge: null,
+    image: img('photo-1580301762395-21ce84d00bc6'),
+    colors: ['#a8a29e', '#92400e', '#334155'],
+    description: 'A generously sized, ultra-soft woven throw in a warm wool blend for cosy evenings.',
+    features: ['Wool-blend weave', '130 × 180 cm', 'Fringed edges', 'Machine washable'],
+  },
+]
+
+export const getProduct = (slug) => products.find((p) => p.slug === slug)
+export const getCategory = (id) => categories.find((c) => c.id === id)
+export const formatPrice = (n) => `$${n.toFixed(2).replace(/\.00$/, '')}`
