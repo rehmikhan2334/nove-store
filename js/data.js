@@ -1,13 +1,13 @@
 const img = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`
 
-export const categories = [
+const categories = [
   { id: 'electronics', name: 'Electronics', icon: 'headphones', blurb: 'Audio, wearables & smart gear' },
   { id: 'fashion', name: 'Fashion', icon: 'tag', blurb: 'Streetwear, shoes & apparel' },
   { id: 'accessories', name: 'Accessories', icon: 'watch', blurb: 'Watches, bags & eyewear' },
   { id: 'home', name: 'Home & Living', icon: 'home', blurb: 'Decor and everyday comfort' },
 ]
 
-export const products = [
+const products = [
   {
     id: 1, slug: 'aura-wireless-headphones', name: 'Aura Wireless Headphones', category: 'electronics', brand: 'Aura',
     price: 149, oldPrice: 199, rating: 4.8, reviews: 328, stock: 24, badge: 'Best Seller',
@@ -138,6 +138,17 @@ export const products = [
   },
 ]
 
-export const getProduct = (slug) => products.find((p) => p.slug === slug)
-export const getCategory = (id) => categories.find((c) => c.id === id)
-export const formatPrice = (n) => `$${n.toFixed(2).replace(/\.00$/, '')}`
+const getProduct = (slug) => products.find((p) => p.slug === slug)
+const getCategory = (id) => categories.find((c) => c.id === id)
+const formatPrice = (n) => `$${n.toFixed(2).replace(/\.00$/, '')}`
+const seedReviews = [
+  { id: 's1', productId: 1, name: 'Ayesha Khan', city: 'Lahore', rating: 5, title: 'Best headphones I have owned', text: 'The noise cancellation is excellent and the battery easily lasts my whole week. Delivery came in two days and the packaging felt premium.', date: '2026-10-28', verified: true },
+  { id: 's2', productId: 3, name: 'Hamza Raza', city: 'Karachi', rating: 5, title: 'Super comfortable for running', text: 'I wore these for a 10 km run on day one with zero blisters. Light, breathable and they look great with jeans too.', date: '2026-11-02', verified: true },
+  { id: 's3', productId: 5, name: 'Sara Malik', city: 'Islamabad', rating: 5, title: 'Looks far more expensive', text: 'Bought this as a gift and my brother loves it. The leather strap is soft and the face is clean and elegant.', date: '2026-11-05', verified: true },
+  { id: 's4', productId: 2, name: 'Bilal Ahmed', city: 'Faisalabad', rating: 4, title: 'Great smart watch for the price', text: 'Heart-rate and sleep tracking are accurate, and the display is bright outdoors. I would love a few more watch faces.', date: '2026-11-08', verified: true },
+  { id: 's5', productId: 9, name: 'Zainab Ali', city: 'Lahore', rating: 5, title: 'The centrepiece of my room', text: 'Super cosy and the oak legs feel solid. Assembly took ten minutes. Guests keep asking where it is from.', date: '2026-11-10', verified: true },
+  { id: 's6', productId: 6, name: 'Usman Tariq', city: 'Multan', rating: 4, title: 'Fits my laptop and more', text: 'Plenty of space, the zips feel sturdy and the back panel keeps me cool. The USB port is a handy bonus.', date: '2026-11-12', verified: true },
+  { id: 's7', productId: 14, name: 'Maryam Noor', city: 'Rawalpindi', rating: 5, title: 'Clean, classic and comfy', text: 'They go with absolutely everything and the cushioned insole makes them wearable all day long.', date: '2026-11-15', verified: true },
+  { id: 's8', productId: 1, name: 'Daniyal Shah', city: 'Peshawar', rating: 4, title: 'Great sound, solid build', text: 'Bass is deep without being muddy. Support replied quickly when I had a question about the warranty.', date: '2026-11-17', verified: true },
+  { id: 's9', productId: 10, name: 'Hira Fatima', city: 'Lahore', rating: 5, title: 'Perfect desk lamp', text: 'The warm light mode is easy on my eyes at night, and the wireless charging base is genuinely useful.', date: '2026-11-19', verified: true },
+]
